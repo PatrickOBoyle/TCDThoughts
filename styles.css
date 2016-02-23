@@ -1,0 +1,56 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    width: 100%;
+    margin-left: 0 auto;
+    margin-right: 0 auto;
+    text-align: center;
+}
+
+a{
+    color: aliceblue;
+}
+
+a:hover{
+    color: rgba(255, 139, 15, 0.85098);
+}
+
+iframe{
+    margin: 0 auto;
+    display: block;
+}
+
+header{
+    padding: 2% 0% 2% 0%;
+    width: 100%;
+    text-align: center;
+    background-color: rgb(85, 172, 238);
+}
+
+header h2{
+    font-family: "Helvetica";
+    color: aliceblue;
+}
+
+footer{
+    height: 5%;
+    position: absolute;
+    padding: 0% 0% 0% 0%;
+    width: 100%;
+    text-align: center;
+    background-color: rgb(85, 172, 238);
+}
+
+footer p{
+    position: relative;
+    top: 30%;
+    font-family: "Helvetica";
+    color: aliceblue;
+}
+
+.main_footer{
+    top: 95%;
+}

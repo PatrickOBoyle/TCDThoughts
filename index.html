@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Geo Tweets</title>
+         <!-- JQuery from Google CDN -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+        <!-- Fill -->
+        <script type="application/javascript" src="script.js"></script>
+        <!-- Mad stylish stuff in here -->
+        <link rel="stylesheet" href="./styles.css"/>
+    </head>
+
+    <body>
+        <header>
+            <h2>Hello Tweeters</h2>
+        </header>
+        
+        <!-- This is all very disgusting, will fix in future (damn it Houli) -->
+        <br><br>
+        <form method="post" action="getData.php">
+            (Lat, Long) 
+            <br>
+            <!-- input validation coming soon(TM) -->
+            <input type="text" id="lat" name="lat" size="10" required/>
+            , <input type="text" id="long" name="long" size="10" required/>
+            <br><br>
+            
+            Radius:
+            <br>
+            <input type="text" id="radius" name="radius" size="4" required/>
+            <select name="unit">
+                <option value="km">Km</option>
+                <option value="mi">Mi</option>
+            </select>
+            <br><br>
+            <input type="submit"/>
+        </form>
+        <br><br>
+        
+        Presets:
+        <br>
+        <select id="location_presets" onchange="fillFormData(this)">
+            <option value="tcd">Trinity</option>
+            <option value="dublin">Dublin</option>
+            <option value="london">London</option>
+            <option value="paris">Paris</option>
+            <option value="nyc">NYC</option>
+            <option value="sf">San Francisco</option>
+        </select>
+        
+        <!-- end disgusting code -->
+        
+        <!-- I'm a sellout -->
+        <footer class="main_footer">
+            <p>By <a href="http://patrickoboyle.com">Patrick O'Boyle</a></p>
+        </footer>
+    </body>
+</html>
