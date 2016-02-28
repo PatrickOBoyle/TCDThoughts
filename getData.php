@@ -15,12 +15,8 @@ if(isset( $_POST['lat'] ) &&
     );
     
     // set variables from POST data
-    // input validation coming soon(TM)
-    $lat = $_POST['lat'];
-    $lat = filter_var($lat, FILTER_SANITIZE_NUMBER_FLOAT);
-    
-    $long = $_POST['long'];
-    $long = filter_var($long, FILTER_SANITIZE_NUMBER_FLOAT);
+    $lat = filter_input(INPUT_POST, 'lat', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
+    $long = filter_input(INPUT_POST, 'long', FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
     
     $radius = $_POST['radius'];
     $radius = filter_var($radius, FILTER_SANITIZE_NUMBER_INT);
@@ -46,7 +42,7 @@ if(isset( $_POST['lat'] ) &&
         ->performRequest();
     
 }else{
-    echo "No user input provided.";
+    echo "\n\n\n<br><br>No user input provided.";
 }    
 ?>
 
@@ -76,6 +72,8 @@ if(isset( $_POST['lat'] ) &&
         <script type="text/javascript">
             var data = (<?php echo $response ?>).statuses;
             var top10 = data.sort(function(a, b) { return a.favorite_count < b.favorite_count ? 1 : -1; }).slice(0, 10);
+            
+            console.log(top10);
             
             $.each(top10, function(data, tweet){
                 var profile = "https://twitter.com/" + tweet.user.screen_name + "/status/" + tweet.id_str;
