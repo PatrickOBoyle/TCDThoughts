@@ -17,10 +17,15 @@ if(isset( $_POST['lat'] ) &&
     // set variables from POST data
     // input validation coming soon(TM)
     $lat = $_POST['lat'];
-    $long = $_POST['long'];
-    $radius = $_POST['radius'];
-    $unit = $_POST['unit'];
+    $lat = filter_var($lat, FILTER_SANITIZE_NUMBER_FLOAT);
     
+    $long = $_POST['long'];
+    $long = filter_var($long, FILTER_SANITIZE_NUMBER_FLOAT);
+    
+    $radius = $_POST['radius'];
+    $radius = filter_var($radius, FILTER_SANITIZE_NUMBER_INT);
+    
+    $unit = $_POST['unit'];
     $radius = $radius . $unit;
 
     // request url
